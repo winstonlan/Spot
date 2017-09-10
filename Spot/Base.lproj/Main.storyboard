@@ -48,16 +48,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imb-kx-8DT" userLabel="TextView">
-                                            <rect key="frame" x="72" y="4" width="180" height="50"/>
+                                            <rect key="frame" x="0.0" y="4" width="197" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="George Washington" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jwz-ee-COa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="28"/>
+                                                    <rect key="frame" x="17" y="0.0" width="180" height="28"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5.23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob7-cn-WFb">
-                                                    <rect key="frame" x="0.0" y="26" width="43" height="24"/>
+                                                    <rect key="frame" x="17" y="26" width="43" height="24"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -65,46 +65,24 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="jwz-ee-COa" firstAttribute="top" secondItem="imb-kx-8DT" secondAttribute="top" id="9eW-ni-ynn"/>
-                                                <constraint firstAttribute="bottom" secondItem="ob7-cn-WFb" secondAttribute="bottom" id="BBu-FE-bLp"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="I9K-JK-aCU"/>
-                                                <constraint firstAttribute="height" constant="50" id="eaE-qt-tds"/>
-                                                <constraint firstAttribute="width" constant="180" id="mGs-La-7hp"/>
-                                                <constraint firstItem="ob7-cn-WFb" firstAttribute="leading" secondItem="imb-kx-8DT" secondAttribute="leading" id="qfM-Cu-sVv"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="r4G-eW-x5g"/>
-                                                <constraint firstItem="jwz-ee-COa" firstAttribute="leading" secondItem="imb-kx-8DT" secondAttribute="leading" id="z4J-WN-CgO"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3A-Hh-aEC" userLabel="PhotoView">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="59"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OTD-7u-jzw">
-                                                    <rect key="frame" x="10" y="4" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="0KL-hm-6Sc"/>
+                                                <constraint firstAttribute="bottom" secondItem="ob7-cn-WFb" secondAttribute="bottom" id="6Io-DL-tsR"/>
+                                                <constraint firstAttribute="width" constant="197" id="8jq-Xf-czM"/>
+                                                <constraint firstItem="ob7-cn-WFb" firstAttribute="leading" secondItem="imb-kx-8DT" secondAttribute="leading" constant="17" id="C96-qf-L88"/>
+                                                <constraint firstItem="jwz-ee-COa" firstAttribute="leading" secondItem="imb-kx-8DT" secondAttribute="leading" constant="17" id="PiL-sv-Xrw"/>
+                                                <constraint firstItem="jwz-ee-COa" firstAttribute="top" secondItem="imb-kx-8DT" secondAttribute="top" id="cVS-1q-S96"/>
+                                                <constraint firstAttribute="height" constant="50" id="r7p-mE-7qa"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="imb-kx-8DT" firstAttribute="leading" secondItem="M3A-Hh-aEC" secondAttribute="trailing" constant="2" id="AIC-L0-VXv"/>
-                                        <constraint firstItem="M3A-Hh-aEC" firstAttribute="top" secondItem="mhF-lI-jod" secondAttribute="top" id="HKQ-wb-chN"/>
-                                        <constraint firstItem="M3A-Hh-aEC" firstAttribute="top" secondItem="mhF-lI-jod" secondAttribute="top" id="LXv-Ou-ogC"/>
-                                        <constraint firstItem="M3A-Hh-aEC" firstAttribute="leading" secondItem="mhF-lI-jod" secondAttribute="leading" id="RhD-gz-8bp"/>
-                                        <constraint firstItem="imb-kx-8DT" firstAttribute="top" secondItem="mhF-lI-jod" secondAttribute="top" constant="4" id="UhF-eo-LI2"/>
-                                        <constraint firstItem="M3A-Hh-aEC" firstAttribute="leading" secondItem="mhF-lI-jod" secondAttribute="leading" id="W5b-nQ-2h1"/>
-                                        <constraint firstItem="imb-kx-8DT" firstAttribute="leading" secondItem="mhF-lI-jod" secondAttribute="leading" constant="72" id="bzn-Wl-o9D"/>
-                                        <constraint firstAttribute="bottom" secondItem="M3A-Hh-aEC" secondAttribute="bottom" id="mdE-Bl-9iZ"/>
-                                        <constraint firstAttribute="bottom" secondItem="M3A-Hh-aEC" secondAttribute="bottom" id="z4g-XL-y8Y"/>
+                                        <constraint firstItem="imb-kx-8DT" firstAttribute="top" secondItem="mhF-lI-jod" secondAttribute="top" constant="4" id="F2k-A8-3w0"/>
+                                        <constraint firstItem="imb-kx-8DT" firstAttribute="leading" secondItem="mhF-lI-jod" secondAttribute="leading" id="JGx-Dj-Qan"/>
+                                        <constraint firstAttribute="bottom" secondItem="imb-kx-8DT" secondAttribute="bottom" constant="4.5" id="uFS-Cj-nGC"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="amount" destination="ob7-cn-WFb" id="5lg-Cu-o6b"/>
                                     <outlet property="personsName" destination="jwz-ee-COa" id="jpS-28-F8u"/>
-                                    <outlet property="personsPhoto" destination="OTD-7u-jzw" id="IfY-SQ-WrA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

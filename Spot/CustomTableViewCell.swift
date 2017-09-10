@@ -12,7 +12,6 @@ class CustomTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var personsName: UILabel!
-    @IBOutlet weak var personsPhoto: UIImageView!
     @IBOutlet weak var amount: UILabel!
     
     override func awakeFromNib() {

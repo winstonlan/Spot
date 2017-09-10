@@ -27,8 +27,8 @@ class EditInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /// Resets the name variable to be the stripped input. Changes upon selecting
-    /// a space outside of the UITextField.
+    /// Resets the name variable to be the stripped input. Changes upon 
+    /// selecting a space outside of the UITextField.
     @IBAction func nameChanged(_ sender: Any) {
         print("Name changed from " + name + " to " + nameLabel.text!)
         name = nameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)

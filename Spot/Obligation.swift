@@ -18,7 +18,8 @@ class Obligation {
     let ref: DatabaseReference?
     var completed: Bool
     
-    init(name: String, amount: Int, addedByUser: String, completed: Bool, key: String = "") {
+    init(name: String, amount: Int, addedByUser: String,
+         completed: Bool, key: String = "") {
         self.key = key
         self.name = name
         self.amount = amount

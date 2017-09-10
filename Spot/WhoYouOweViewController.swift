@@ -53,7 +53,8 @@ class WhoYouOweViewController: UITableViewController {
         let obligationItem = obligations[indexPath.row]
         
         cell.personsName?.text = obligationItem.name
-        cell.amount?.text = String(obligationItem.amount)
+        cell.amount?.text = "$" + String(
+            format: "%.2f", Double(obligationItem.amount / 100))
         
         return cell
     }

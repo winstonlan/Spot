@@ -14,19 +14,27 @@ class EditInfoViewController: UIViewController {
     var name: String    = ""
     var amount: String  = ""
     
+    var passedName: String?
+    var passedAmount: String?
+    
     @IBOutlet weak var amountLabel: UITextField!
     @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var updateButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        amountLabel.text = passedAmount
+        nameLabel.text = passedName
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
     /// Resets the name variable to be the stripped input. Changes upon 
     /// selecting a space outside of the UITextField.
     @IBAction func nameChanged(_ sender: Any) {
@@ -34,11 +42,26 @@ class EditInfoViewController: UIViewController {
         name = nameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
+    
     /// Resets the amount variable to be the stripped input. Changes upon
     /// selecting a space outside of the UITextField.
     @IBAction func amountChanged(_ sender: Any) {
         print("Amount changed from " + amount + " to " + amountLabel.text!)
         amount = nameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    // MARK add back (i.e. cancel) button
+    
+    
+    // MARK add confirmButtonPressed
+    @IBAction func updateButtonPressed(_ sender: Any) {
+        print("Update button pressed")
+    }
+    
+    
+    /// Sends updated information to the model
+    func sendUpdateToModel(data: Any) {
+        
     }
 }
 

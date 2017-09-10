@@ -48,7 +48,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imb-kx-8DT" userLabel="TextView">
-                                            <rect key="frame" x="0.0" y="4" width="197" height="50"/>
+                                            <rect key="frame" x="0.0" y="4" width="375" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="George Washington" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jwz-ee-COa">
                                                     <rect key="frame" x="17" y="0.0" width="180" height="28"/>
@@ -62,27 +62,47 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BQ-eG-P08">
+                                                    <rect key="frame" x="337" y="10" width="30" height="30"/>
+                                                    <state key="normal" title="Pay"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlU-DQ-r2n">
+                                                    <rect key="frame" x="263" y="10" width="30" height="30"/>
+                                                    <state key="normal" title="Edit"/>
+                                                    <connections>
+                                                        <action selector="editButtonPressed:" destination="RQ1-jD-9lT" eventType="touchUpInside" id="mnZ-Xb-K8B"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="ob7-cn-WFb" secondAttribute="bottom" id="6Io-DL-tsR"/>
-                                                <constraint firstAttribute="width" constant="197" id="8jq-Xf-czM"/>
+                                                <constraint firstAttribute="width" constant="375" id="8jq-Xf-czM"/>
                                                 <constraint firstItem="ob7-cn-WFb" firstAttribute="leading" secondItem="imb-kx-8DT" secondAttribute="leading" constant="17" id="C96-qf-L88"/>
+                                                <constraint firstItem="0BQ-eG-P08" firstAttribute="centerY" secondItem="imb-kx-8DT" secondAttribute="centerY" id="Hyb-Vw-QKA"/>
+                                                <constraint firstAttribute="trailing" secondItem="0BQ-eG-P08" secondAttribute="trailing" constant="8" id="KaC-x0-Ra0"/>
+                                                <constraint firstItem="0BQ-eG-P08" firstAttribute="leading" secondItem="RlU-DQ-r2n" secondAttribute="trailing" constant="44" id="PLN-hd-sx7"/>
                                                 <constraint firstItem="jwz-ee-COa" firstAttribute="leading" secondItem="imb-kx-8DT" secondAttribute="leading" constant="17" id="PiL-sv-Xrw"/>
                                                 <constraint firstItem="jwz-ee-COa" firstAttribute="top" secondItem="imb-kx-8DT" secondAttribute="top" id="cVS-1q-S96"/>
                                                 <constraint firstAttribute="height" constant="50" id="r7p-mE-7qa"/>
+                                                <constraint firstItem="RlU-DQ-r2n" firstAttribute="centerY" secondItem="imb-kx-8DT" secondAttribute="centerY" id="xpj-uI-GuN"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="imb-kx-8DT" firstAttribute="top" secondItem="mhF-lI-jod" secondAttribute="top" constant="4" id="F2k-A8-3w0"/>
                                         <constraint firstItem="imb-kx-8DT" firstAttribute="leading" secondItem="mhF-lI-jod" secondAttribute="leading" id="JGx-Dj-Qan"/>
+                                        <constraint firstAttribute="trailing" secondItem="imb-kx-8DT" secondAttribute="trailing" id="LOI-xW-h2l"/>
+                                        <constraint firstAttribute="trailing" secondItem="imb-kx-8DT" secondAttribute="trailing" id="nY4-SU-aHG"/>
+                                        <constraint firstItem="imb-kx-8DT" firstAttribute="leading" secondItem="mhF-lI-jod" secondAttribute="leading" id="oZt-kB-Umh"/>
                                         <constraint firstAttribute="bottom" secondItem="imb-kx-8DT" secondAttribute="bottom" constant="4.5" id="uFS-Cj-nGC"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="amount" destination="ob7-cn-WFb" id="5lg-Cu-o6b"/>
-                                    <outlet property="personsName" destination="jwz-ee-COa" id="jpS-28-F8u"/>
+                                    <outlet property="amount" destination="ob7-cn-WFb" id="nwb-27-6AC"/>
+                                    <outlet property="editButton" destination="RlU-DQ-r2n" id="7g2-zn-QQ8"/>
+                                    <outlet property="personsName" destination="jwz-ee-COa" id="6zF-xS-Iiz"/>
+                                    <outlet property="transactionButton" destination="0BQ-eG-P08" id="uIp-8M-MeP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -91,10 +111,13 @@
                             <outlet property="delegate" destination="RQ1-jD-9lT" id="Pnu-i0-kXv"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="1ty-PM-IHt" kind="show" identifier="toEditScreen" id="9hw-op-Ans"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9DE-MJ-dYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160.80000000000001" y="100.29985007496252"/>
+            <point key="canvasLocation" x="124" y="98.50074962518741"/>
         </scene>
         <!--Who Owes You View Controller-->
         <scene sceneID="PXB-Q6-kE8">
@@ -251,15 +274,40 @@
                                             <constraint firstItem="ngp-SJ-3Pf" firstAttribute="leading" secondItem="dy0-U9-znk" secondAttribute="leading" constant="56" id="pud-Vs-2aJ"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abn-R9-KmV" userLabel="ButtonView">
+                                        <rect key="frame" x="0.0" y="299" width="375" height="116"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjy-uk-wZ0">
+                                                <rect key="frame" x="147" y="36" width="80" height="45"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                                <state key="normal" title="Update">
+                                                    <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="updateButtonPressed:" destination="1ty-PM-IHt" eventType="touchUpInside" id="Pmk-1y-iUO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="kjy-uk-wZ0" firstAttribute="centerY" secondItem="Abn-R9-KmV" secondAttribute="centerY" id="cEu-do-UQc"/>
+                                            <constraint firstItem="kjy-uk-wZ0" firstAttribute="centerX" secondItem="Abn-R9-KmV" secondAttribute="centerX" id="kyr-dy-umz"/>
+                                            <constraint firstAttribute="height" constant="116" id="zo8-Kq-RxD"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Abn-R9-KmV" firstAttribute="top" secondItem="dy0-U9-znk" secondAttribute="bottom" id="2iG-5G-wgt"/>
+                                    <constraint firstItem="Abn-R9-KmV" firstAttribute="top" secondItem="dy0-U9-znk" secondAttribute="bottom" id="3Wq-OX-Vh5"/>
+                                    <constraint firstItem="Abn-R9-KmV" firstAttribute="leading" secondItem="mdc-Om-YzH" secondAttribute="leading" id="4LD-vZ-mXh"/>
                                     <constraint firstItem="kWV-NC-TgF" firstAttribute="top" secondItem="mdc-Om-YzH" secondAttribute="top" id="M5T-jf-W1E"/>
                                     <constraint firstItem="dy0-U9-znk" firstAttribute="leading" secondItem="mdc-Om-YzH" secondAttribute="leading" id="SZB-lo-afR"/>
                                     <constraint firstItem="dy0-U9-znk" firstAttribute="top" secondItem="kWV-NC-TgF" secondAttribute="bottom" id="b1e-7A-lcn"/>
                                     <constraint firstAttribute="trailing" secondItem="kWV-NC-TgF" secondAttribute="trailing" id="eGl-70-HAM"/>
                                     <constraint firstAttribute="trailing" secondItem="dy0-U9-znk" secondAttribute="trailing" id="vns-9F-yTw"/>
                                     <constraint firstItem="kWV-NC-TgF" firstAttribute="leading" secondItem="mdc-Om-YzH" secondAttribute="leading" id="y4W-AK-a5x"/>
+                                    <constraint firstAttribute="trailing" secondItem="Abn-R9-KmV" secondAttribute="trailing" id="zkb-Mh-F5c"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -279,11 +327,12 @@
                     <connections>
                         <outlet property="amountLabel" destination="ngp-SJ-3Pf" id="KsN-dq-W4p"/>
                         <outlet property="nameLabel" destination="bcq-nz-dkN" id="Pgp-Y6-8P4"/>
+                        <outlet property="updateButton" destination="kjy-uk-wZ0" id="ztr-Xa-igx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNv-tM-68V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538.39999999999998" y="773.16341829085468"/>
+            <point key="canvasLocation" x="588" y="956"/>
         </scene>
     </scenes>
 </document>

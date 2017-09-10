@@ -16,20 +16,21 @@ class WhoYouOweViewController: UITableViewController {
     var user: User!
     var ref: DatabaseReference!
     
-    
+    var personsName: String = ""
+    var amountToPay: String = ""
     
     
     // MARK: UITableViewController Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "users")
         
         user = User(uid: "FakeId", email: "user1@spot.com")
         
-        
-        
-        ref.child("\(user.uid)/debt").observe(DataEventType.value, with: { (snapshot) in
+        ref.child(
+            "\(user.uid)/debt").observe(
+                DataEventType.value,
+                with: { (snapshot) in
             var newObligations: [Obligation] = []
             
             for item in snapshot.children {
@@ -40,16 +41,24 @@ class WhoYouOweViewController: UITableViewController {
             self.obligations = newObligations
             self.tableView.reloadData()
         })
-        
     }
 
+    
     // MARK: UITableView Delegate methods
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(
+        _ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return obligations.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ObligationCell", for: indexPath) as! CustomTableViewCell
+    
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "ObligationCell", for: indexPath)
+            as! CustomTableViewCell
+        
         let obligationItem = obligations[indexPath.row]
         
         cell.personsName?.text = obligationItem.name
@@ -61,8 +70,30 @@ class WhoYouOweViewController: UITableViewController {
     
     // MARK: Add Obligation
     func addButtonDidTouch() {
-        let debt = Obligation(name: "John Doe", amount: 300, addedByUser: user.email, completed: false)
-        ref.child("\(user.uid)/debt").childByAutoId().setValue(debt.toAnyObject())
+        let debt = Obligation(
+            name: "John Doe", amount: 300, addedByUser: user.email,
+            completed: false)
+        
+        ref.child(
+            "\(user.uid)/debt").childByAutoId().setValue(debt.toAnyObject())
     }
-
+    
+    
+    /// Perform segue over to the Edit View Controller
+    @IBAction func editButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toEditScreen", sender: self)
+    }
+    
+    
+    /// Loads destination view controller with the name and amount of 
+    /// the obligation to edit
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEditScreen" {
+            let destinationVC = segue.destination as! EditInfoViewController
+            destinationVC.passedName    = obligations[0].name
+            destinationVC.passedAmount  = String(
+                format: "%.2f", Double(obligations[0].amount / 100))
+        }
+    }
+    
 }

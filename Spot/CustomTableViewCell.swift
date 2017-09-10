@@ -11,6 +11,8 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var transactionButton: UIButton!
     @IBOutlet weak var personsName: UILabel!
     @IBOutlet weak var amount: UILabel!
     
@@ -27,6 +29,6 @@ class CustomTableViewCell: UITableViewCell {
     
     /// Convert a price to a string
     func string(_ prefix: String, for cents: Int) -> String {
-        return prefix + String(format: "2.2f", cents / 100)
+        return prefix + String(format: "%.2f", cents / 100)
     }
-}
+    }

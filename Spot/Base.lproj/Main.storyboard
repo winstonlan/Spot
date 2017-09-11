@@ -196,12 +196,25 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ts0-ax-dlg">
+                                        <rect key="frame" x="20" y="27" width="52" height="21"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="1ty-PM-IHt" eventType="touchUpInside" id="0wR-tB-znr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="sQb-AE-Niy" firstAttribute="centerY" secondItem="JqG-jt-SHZ" secondAttribute="centerY" id="Dcu-GS-KfP"/>
                                     <constraint firstAttribute="height" constant="75" id="Dko-em-O5Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="ts0-ax-dlg" secondAttribute="bottom" constant="27" id="PCe-Ss-EuG"/>
+                                    <constraint firstItem="ts0-ax-dlg" firstAttribute="leading" secondItem="JqG-jt-SHZ" secondAttribute="leading" constant="20" id="URI-gc-NqU"/>
                                     <constraint firstItem="sQb-AE-Niy" firstAttribute="centerX" secondItem="JqG-jt-SHZ" secondAttribute="centerX" id="Ukz-du-Fxy"/>
+                                    <constraint firstItem="ts0-ax-dlg" firstAttribute="top" secondItem="JqG-jt-SHZ" secondAttribute="top" constant="27" id="bpx-Vu-Elq"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdc-Om-YzH" userLabel="DataContainer">
@@ -219,7 +232,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="nameChanged:" destination="1ty-PM-IHt" eventType="editingDidEnd" id="IuD-zO-iao"/>
+                                                    <action selector="nameChanged:" destination="1ty-PM-IHt" eventType="editingChanged" id="ZHg-69-yNB"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwS-xH-50L">
@@ -260,7 +273,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="amountChanged:" destination="1ty-PM-IHt" eventType="editingDidEnd" id="OEM-Ju-FRg"/>
+                                                    <action selector="amountChanged:" destination="1ty-PM-IHt" eventType="editingChanged" id="iul-AO-aJ5"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -332,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNv-tM-68V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="956"/>
+            <point key="canvasLocation" x="587.5" y="955.5"/>
         </scene>
     </scenes>
 </document>

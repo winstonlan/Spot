@@ -16,6 +16,7 @@ class WhoYouOweViewController: UITableViewController {
     var user: User!
     var ref: DatabaseReference!
     
+    var index : Int = 0
     var personsName: String = ""
     var amountToPay: String = ""
     
@@ -62,8 +63,8 @@ class WhoYouOweViewController: UITableViewController {
         let obligationItem = obligations[indexPath.row]
         
         cell.personsName?.text = obligationItem.name
-        cell.amount?.text = "$" + String(
-            format: "%.2f", Double(obligationItem.amount / 100))
+        cell.amount?.text = String(
+            format: "$%.2f", Double(obligationItem.amount / 100))
         
         return cell
     }
@@ -80,7 +81,10 @@ class WhoYouOweViewController: UITableViewController {
     
     
     /// Perform segue over to the Edit View Controller
-    @IBAction func editButtonPressed(_ sender: Any) {
+    @IBAction func editButtonPressed(_ sender: UIButton) {
+        // Get the index by tag
+        index = sender.tag
+        print("Index is now \(index)")
         performSegue(withIdentifier: "toEditScreen", sender: self)
     }
     
@@ -90,9 +94,11 @@ class WhoYouOweViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditScreen" {
             let destinationVC = segue.destination as! EditInfoViewController
-            destinationVC.passedName    = obligations[0].name
+            
+            destinationVC.passedName    = obligations[index].name
             destinationVC.passedAmount  = String(
-                format: "%.2f", Double(obligations[0].amount / 100))
+                format: "%.2f", Double(obligations[index].amount / 100))
+            destinationVC.passedKey           = obligations[index].key
         }
     }
     

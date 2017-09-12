@@ -82,8 +82,8 @@ class WhoYouOweViewController: UITableViewController {
     
     /// Perform segue over to the Edit View Controller
     @IBAction func editButtonPressed(_ sender: UIButton) {
-        // Get the index by tag
-        index = sender.tag
+        let editBtnCoords = sender.convert(CGPoint(), to: tableView)
+        index = tableView.indexPathForRow(at: editBtnCoords)![1]
         print("Index is now \(index)")
         performSegue(withIdentifier: "toEditScreen", sender: self)
     }
@@ -94,11 +94,7 @@ class WhoYouOweViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditScreen" {
             let destinationVC = segue.destination as! EditInfoViewController
-            
-            destinationVC.passedName    = obligations[index].name
-            destinationVC.passedAmount  = String(
-                format: "%.2f", Double(obligations[index].amount / 100))
-            destinationVC.passedKey           = obligations[index].key
+            destinationVC.oblig    = obligations[index]
         }
     }
     

@@ -15,9 +15,7 @@ class EditInfoViewController: UIViewController {
     var name: String    = ""
     var amount: String  = ""
     
-    var passedName: String?
-    var passedAmount: String?
-    var passedKey : String?
+    var oblig : Obligation?
     
     // Useful in determine whether to update the server data
     var prelimName : String?
@@ -30,8 +28,9 @@ class EditInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        amountLabel.text = passedAmount
-        nameLabel.text = passedName
+        
+        amountLabel.text = String(format: "$%.2f", Double((oblig?.amount)! / 100))
+        nameLabel.text = oblig?.name
         
         prelimName = nameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         prelimAmount = amountLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -49,8 +48,6 @@ class EditInfoViewController: UIViewController {
     
     /// Resets the name variable to be the stripped input. Changes upon 
     /// selecting a space outside of the UITextField.
-    
-    
     @IBAction func nameChanged(_ sender: Any) {
         print("Name changed from " + name + " to " + nameLabel.text!)
         name = nameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -71,7 +68,8 @@ class EditInfoViewController: UIViewController {
     }
     
     
-    // MARK add confirmButtonPressed
+    /// When the update button is pressed, this function is called to send 
+    /// the attributes of an Obligation object to the server 
     @IBAction func updateButtonPressed(_ sender: Any) {
         print("Update button pressed")
         updateData()
@@ -81,14 +79,13 @@ class EditInfoViewController: UIViewController {
     
     /// Sends updated information to the model
     func updateData() {
-        // Conditional check prevents user from accidentalty sending the
-        // same information to the server
+        // Prevent user from redudantly sending the same info
         if prelimName != name || prelimAmount != amount {
-            print("Sending key \(passedKey!), name \(name), "
+            print("Sending key \(String(describing: oblig?.key)), name \(name), "
                 + "and amount \(amount) to server")
-            // Send data to server here
+            // TODO Send data to server here
         } else {
-            print("Constant information")
+            print("Information unchanged")
         }
     }
 }

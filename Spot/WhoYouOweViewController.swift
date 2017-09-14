@@ -44,6 +44,18 @@ class WhoYouOweViewController: UITableViewController {
         })
     }
 
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController!.navigationBar.barTintColor = UIColor(
+            red: 0.24, green: 0.57, blue: 1.0, alpha: 1.0)
+        self.navigationController!.navigationBar.tintColor = UIColor.white
+        self.navigationController!.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "Avenir", size: 32)!,
+            NSForegroundColorAttributeName: UIColor.white
+        ]
+    }
+    
     
     // MARK: UITableView Delegate methods
     override func tableView(

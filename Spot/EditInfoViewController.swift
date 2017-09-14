@@ -27,7 +27,9 @@ class EditInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
+        UINavigationBar.appearance().barTintColor = UIColor.red
         
         amountLabel.text = String(format: "$%.2f", Double((oblig?.amount)! / 100))
         nameLabel.text = oblig?.name
@@ -39,6 +41,16 @@ class EditInfoViewController: UIViewController {
         amount = prelimAmount!
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController!.navigationBar.barTintColor = UIColor(
+            red: 0.80, green: 0.42, blue: 0.90, alpha: 1.0)
+        self.navigationController!.navigationBar.tintColor = UIColor.white
+        self.navigationController!.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "Avenir", size: 32)!,
+            NSForegroundColorAttributeName: UIColor.white
+        ]
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,6 +85,7 @@ class EditInfoViewController: UIViewController {
     @IBAction func updateButtonPressed(_ sender: Any) {
         print("Update button pressed")
         updateData()
+        navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     

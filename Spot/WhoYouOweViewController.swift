@@ -76,7 +76,7 @@ class WhoYouOweViewController: UITableViewController {
         
         cell.personsName?.text = obligationItem.name
         cell.amount?.text = String(
-            format: "$%.2f", Double(obligationItem.amount / 100))
+            format: "$%.2f", Double(obligationItem.amount) / 100)
         
         return cell
     }
@@ -100,7 +100,6 @@ class WhoYouOweViewController: UITableViewController {
                 completed: false)
             
             self.ref.child("\(self.user.uid)/debt").childByAutoId().setValue(debt.toAnyObject())
-            print("Name: \(nameText.text!), Amount: \(amountText.text!)")
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
@@ -119,8 +118,7 @@ class WhoYouOweViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    /// Perform segue over to the Edit View Controller
+    // MARK: Segue Methods
     @IBAction func editButtonPressed(_ sender: UIButton) {
         let editBtnCoords = sender.convert(CGPoint(), to: tableView)
         index = tableView.indexPathForRow(at: editBtnCoords)![1]
@@ -128,9 +126,6 @@ class WhoYouOweViewController: UITableViewController {
         performSegue(withIdentifier: "toEditScreen", sender: self)
     }
     
-    
-    /// Loads destination view controller with the name and amount of 
-    /// the obligation to edit
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditScreen" {
             let destinationVC = segue.destination as! EditInfoViewController

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gr5-by-04b" id="mhF-lI-jod" customClass="CustomTableViewCell" customModule="Spot" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imb-kx-8DT" userLabel="TextView">
@@ -89,7 +89,13 @@
                             <outlet property="delegate" destination="RQ1-jD-9lT" id="Pnu-i0-kXv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Who You Owe" id="unr-xn-Mr1"/>
+                    <navigationItem key="navigationItem" title="Who You Owe" id="unr-xn-Mr1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Grp-l9-ymF">
+                            <connections>
+                                <action selector="addButtonDidTouch:" destination="RQ1-jD-9lT" id="3yV-0f-BOX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="1ty-PM-IHt" kind="show" identifier="toEditScreen" id="9hw-op-Ans"/>
@@ -112,7 +118,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EP4-Oh-iir" id="E0Y-10-kcQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKY-Uu-P4G" userLabel="ReceivablesTextView">
@@ -406,6 +412,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7gl-5F-R7w"/>
+        <segue reference="9hw-op-Ans"/>
     </inferredMetricsTieBreakers>
 </document>

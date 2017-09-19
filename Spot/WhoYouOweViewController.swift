@@ -82,13 +82,41 @@ class WhoYouOweViewController: UITableViewController {
     }
     
     // MARK: Add Obligation
-    func addButtonDidTouch() {
-        let debt = Obligation(
-            name: "John Doe", amount: 300, addedByUser: user.email,
-            completed: false)
+    @IBAction func addButtonDidTouch(_ sender: Any) {
+
+        let alert = UIAlertController(title: "Obligation",
+                                      message: "Add Payable Transaction",
+                                      preferredStyle: .alert)
         
-        ref.child(
-            "\(user.uid)/debt").childByAutoId().setValue(debt.toAnyObject())
+        let saveAction = UIAlertAction(title: "Add", style: .default)
+        { _ in
+            let nameText = alert.textFields![0]
+            let amountText = alert.textFields![1]
+            
+            let debt = Obligation(
+                name: nameText.text!,
+                amount: self.dollarsToCents(amount: (Double(amountText.text!))!),
+                addedByUser: self.user.email,
+                completed: false)
+            
+            self.ref.child("\(self.user.uid)/debt").childByAutoId().setValue(debt.toAnyObject())
+            print("Name: \(nameText.text!), Amount: \(amountText.text!)")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alert.addTextField { (textField: UITextField) in
+            textField.placeholder = "Username"
+        }
+        
+        alert.addTextField { (textField: UITextField) in
+            textField.placeholder = "0.00"
+            textField.keyboardType = .decimalPad
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     
@@ -108,6 +136,11 @@ class WhoYouOweViewController: UITableViewController {
             let destinationVC = segue.destination as! EditInfoViewController
             destinationVC.oblig    = obligations[index]
         }
+    }
+    
+    // MARK: Helper Method
+    func dollarsToCents(amount: Double) -> Int {
+        return Int( amount * 100 )
     }
     
 }

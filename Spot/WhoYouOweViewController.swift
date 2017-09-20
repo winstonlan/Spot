@@ -20,7 +20,6 @@ class WhoYouOweViewController: UITableViewController {
     var personsName: String = ""
     var amountToPay: String = ""
     
-    
     // MARK: UITableViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,6 @@ class WhoYouOweViewController: UITableViewController {
         })
     }
 
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.navigationBar.barTintColor = UIColor(
@@ -56,13 +54,11 @@ class WhoYouOweViewController: UITableViewController {
         ]
     }
     
-    
     // MARK: UITableView Delegate methods
     override func tableView(
         _ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return obligations.count
     }
-    
     
     override func tableView(
         _ tableView: UITableView,
@@ -79,6 +75,25 @@ class WhoYouOweViewController: UITableViewController {
             format: "$%.2f", Double(obligationItem.amount) / 100)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            print("delete button tapped")
+        }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            print("edit button tapped")
+        }
+
+        delete.backgroundColor = .red
+        edit.backgroundColor = .lightGray
+        
+        return [delete, edit]
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     // MARK: Add Obligation
@@ -133,7 +148,7 @@ class WhoYouOweViewController: UITableViewController {
         }
     }
     
-    // MARK: Helper Method
+    // MARK: Helper Methods
     func dollarsToCents(amount: Double) -> Int {
         return Int( amount * 100 )
     }

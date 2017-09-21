@@ -10,7 +10,6 @@
 		0A3C929CC0249C38C8912EA9 /* Pods_Spot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB261C9CD5AC45F72F1A29F /* Pods_Spot.framework */; };
 		44523F101F5B2BC000F99FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44523F0F1F5B2BC000F99FEA /* AppDelegate.swift */; };
 		44523F121F5B2BC000F99FEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44523F111F5B2BC000F99FEA /* ViewController.swift */; };
-		44523F151F5B2BC000F99FEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44523F131F5B2BC000F99FEA /* Main.storyboard */; };
 		44523F171F5B2BC000F99FEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44523F161F5B2BC000F99FEA /* Assets.xcassets */; };
 		44523F1A1F5B2BC000F99FEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44523F181F5B2BC000F99FEA /* LaunchScreen.storyboard */; };
 		44F3C1611F62542F0084A4A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44F3C1601F62542F0084A4A2 /* GoogleService-Info.plist */; };
@@ -20,6 +19,8 @@
 		44F3C16A1F625F820084A4A2 /* Obligation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3C1691F625F820084A4A2 /* Obligation.swift */; };
 		8C23879A1F5E2E850085D01D /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2387991F5E2E850085D01D /* EditInfoViewController.swift */; };
 		8C71247F1F5FD08700235EEC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71247E1F5FD08700235EEC /* CustomTableViewCell.swift */; };
+		8C9ED65E1F738C1500AC9B5E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9ED65C1F738C1500AC9B5E /* LoginViewController.swift */; };
+		8CE30EE71F738BC2008A4457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44523F131F5B2BC000F99FEA /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		44F3C1691F625F820084A4A2 /* Obligation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obligation.swift; sourceTree = "<group>"; };
 		8C2387991F5E2E850085D01D /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		8C71247E1F5FD08700235EEC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		8C9ED65C1F738C1500AC9B5E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8F5B5D4805207373C2DA4F70 /* Pods-Spot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spot/Pods-Spot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 				44523F111F5B2BC000F99FEA /* ViewController.swift */,
 				44F3C1631F625A130084A4A2 /* WhoYouOweViewController.swift */,
 				44F3C1651F625A9A0084A4A2 /* WhoOwesYouViewController.swift */,
+				8C9ED65C1F738C1500AC9B5E /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -207,7 +210,7 @@
 				44F3C1611F62542F0084A4A2 /* GoogleService-Info.plist in Resources */,
 				44523F1A1F5B2BC000F99FEA /* LaunchScreen.storyboard in Resources */,
 				44523F171F5B2BC000F99FEA /* Assets.xcassets in Resources */,
-				44523F151F5B2BC000F99FEA /* Main.storyboard in Resources */,
+				8CE30EE71F738BC2008A4457 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9ED65E1F738C1500AC9B5E /* LoginViewController.swift in Sources */,
 				44523F121F5B2BC000F99FEA /* ViewController.swift in Sources */,
 				44F3C1641F625A130084A4A2 /* WhoYouOweViewController.swift in Sources */,
 				8C23879A1F5E2E850085D01D /* EditInfoViewController.swift in Sources */,

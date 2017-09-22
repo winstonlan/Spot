@@ -15,7 +15,6 @@ class WhoYouOweViewController: UITableViewController {
     var obligations: [Obligation] = []
     var user: User!
     var ref: DatabaseReference!
-    
     var index : Int = 0
     var personsName: String = ""
     var amountToPay: String = ""
@@ -71,8 +70,7 @@ class WhoYouOweViewController: UITableViewController {
         let obligationItem = obligations[indexPath.row]
         
         cell.personsName?.text = obligationItem.name
-        cell.amount?.text = String(
-            format: "$%.2f", Double(obligationItem.amount) / 100)
+        cell.amount?.text = "$\(obligationItem.toDollarAmount())"
         
         return cell
     }
@@ -85,6 +83,7 @@ class WhoYouOweViewController: UITableViewController {
         }
         
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            self.editButtonDidTouch(rowIndex: index.row)
             print("edit button tapped")
         }
 
@@ -112,7 +111,7 @@ class WhoYouOweViewController: UITableViewController {
             
             let debt = Obligation(
                 name: nameText.text!,
-                amount: self.dollarsToCents(amount: (Double(amountText.text!))!),
+                amount: self.dollarsToCents(amount: Double(amountText.text!)!),
                 addedByUser: self.user.email,
                 completed: false)
             
@@ -129,6 +128,46 @@ class WhoYouOweViewController: UITableViewController {
             textField.placeholder = "0.00"
             textField.keyboardType = .decimalPad
         }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    //: MARK: Edit Obligation
+    func editButtonDidTouch(rowIndex: Int) {
+        let obligationItem = self.obligations[rowIndex]
+        let key = obligationItem.ref!
+        print("KEY: \(key)")
+        
+        let alert = UIAlertController(title: "Obligation",
+                                      message: "Edit Payable Transaction",
+                                      preferredStyle: .alert)
+        
+        alert.addTextField { (textField: UITextField) in
+            textField.text = obligationItem.name
+        }
+        
+        alert.addTextField { (textField: UITextField) in
+            textField.text = obligationItem.toDollarAmount()
+            textField.keyboardType = .decimalPad
+        }
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default)
+        { _ in
+            let nameText = alert.textFields![0]
+            let amountText = alert.textFields![1]
+            
+            let debt = Obligation(
+                name: nameText.text!,
+                amount: self.dollarsToCents(amount: Double(amountText.text!)!),
+                addedByUser: self.user.email,
+                completed: false)
+            
+            key.setValue(debt.toAnyObject())
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         
         alert.addAction(saveAction)
         alert.addAction(cancelAction)

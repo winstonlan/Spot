@@ -79,7 +79,9 @@ class WhoYouOweViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            print("delete button tapped")
+            let obligationItem = self.obligations[index.row]
+            obligationItem.ref?.removeValue()
+            print("Delete button tapped")
         }
         
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in

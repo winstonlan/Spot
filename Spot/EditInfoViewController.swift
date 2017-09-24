@@ -32,6 +32,8 @@ class EditInfoViewController: UIViewController {
         UINavigationBar.appearance().barTintColor = UIColor.red
         
         amountLabel.text = String(format: "$%.2f", Double((oblig?.amount)! / 100))
+        amountLabel.keyboardType = .decimalPad
+        
         nameLabel.text = oblig?.name
         
         prelimName = nameLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -55,6 +57,11 @@ class EditInfoViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    /// Dismisses keyboard upon touch outside of keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     

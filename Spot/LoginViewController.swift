@@ -61,6 +61,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    /// Dismisses keyboard upon touch outside of keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     /// Helper function to display an alert instance when non-empty invalid 
     /// input is provided.
     func generateInvalidInputAlert(title_: String, message_: String) {
@@ -88,10 +93,15 @@ class LoginViewController: UIViewController {
         present(noInput, animated: true, completion: nil)
     }
     
+    /// Returns true if the input is all whitespace
+    func isAllWhitespace(word: String) -> Bool {
+        return word.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+    }
+    
     /// Returns true if login is non empty. False otherwise
     func nonEmpty() -> Bool {
-        let filledUser = usernameField.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""
-        let filledPw = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""
+        let filledUser  = !isAllWhitespace(word: usernameField.text!)
+        let filledPw    = !isAllWhitespace(word: passwordField.text!)
         return filledUser && filledPw
     }
     

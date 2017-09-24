@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8hh-UZ-lTN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sZZ-YE-WnT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -362,7 +362,7 @@
         <scene sceneID="uAf-sy-Uhi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X9z-Us-FZB" userLabel="Who Owes You 2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Go to Who You Owe" id="FEU-dJ-J0w"/>
+                    <tabBarItem key="tabBarItem" title="Who Owes You" id="FEU-dJ-J0w"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xKb-0r-z9L">
@@ -377,25 +377,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHe-II-EIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1063.2" y="889.20539730134942"/>
-        </scene>
-        <!--Who Owes You 1-->
-        <scene sceneID="s5k-Kt-vAq">
-            <objects>
-                <tabBarController title="Who Owes You" automaticallyAdjustsScrollViewInsets="NO" id="5Zp-Jj-b5c" userLabel="Who Owes You 1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Who Owes You" id="s1r-av-zp7" userLabel="Who You Owe"/>
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="xFZ-Os-iA8">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="X9z-Us-FZB" kind="relationship" relationship="viewControllers" id="iYG-f9-43b"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zzf-RF-9Na" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="124" y="889.20539730134942"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="nP7-NE-cBJ">
@@ -537,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uty-Or-kME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-932" y="99"/>
+            <point key="canvasLocation" x="-1127" y="457"/>
         </scene>
         <!--Who You Owe 1-->
         <scene sceneID="g7B-4u-xJD">
@@ -551,12 +532,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="N1i-4g-EEr" kind="relationship" relationship="viewControllers" id="B5H-j1-80p"/>
-                        <segue destination="5Zp-Jj-b5c" kind="relationship" relationship="viewControllers" id="EmB-qX-WGB"/>
+                        <segue destination="X9z-Us-FZB" kind="relationship" relationship="viewControllers" id="g05-Sc-dc6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJe-U8-MkG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="98.50074962518741"/>
+            <point key="canvasLocation" x="-100" y="457"/>
         </scene>
     </scenes>
     <resources>

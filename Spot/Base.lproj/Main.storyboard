@@ -341,7 +341,7 @@
         <scene sceneID="pCk-1l-FdJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N1i-4g-EEr" userLabel="Who You Owe 2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Who You Owe" id="PDF-nO-D6i" userLabel="Who You Owe"/>
+                    <tabBarItem key="tabBarItem" title="Who You Owe" image="payable" id="PDF-nO-D6i" userLabel="Who You Owe"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dnV-j7-SoY"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -362,7 +362,7 @@
         <scene sceneID="uAf-sy-Uhi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X9z-Us-FZB" userLabel="Who Owes You 2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Who Owes You" id="FEU-dJ-J0w"/>
+                    <tabBarItem key="tabBarItem" title="Who Owes You" image="receivable" id="FEU-dJ-J0w"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xKb-0r-z9L">
@@ -542,6 +542,8 @@
     </scenes>
     <resources>
         <image name="long-logo" width="154" height="46"/>
+        <image name="payable" width="25" height="25"/>
+        <image name="receivable" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7gl-5F-R7w"/>

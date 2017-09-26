@@ -47,4 +47,7 @@ class Obligation {
         ]
     }
     
+    func toDollarAmount() -> String {
+        return String(format: "%.2f", Double(amount) / 100)
+    }
 }

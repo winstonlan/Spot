@@ -175,12 +175,14 @@ class WhoYouOweViewController: UITableViewController {
     }
     
     // MARK: Segue Methods
+    /*
     @IBAction func editButtonPressed(_ sender: UIButton) {
         let editBtnCoords = sender.convert(CGPoint(), to: tableView)
         index = tableView.indexPathForRow(at: editBtnCoords)![1]
         print("Index is now \(index)")
         performSegue(withIdentifier: "toEditScreen", sender: self)
     }
+ */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditScreen" {

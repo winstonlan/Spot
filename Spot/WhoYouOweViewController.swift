@@ -134,6 +134,42 @@ class WhoYouOweViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
+    /// Returns true if input is valid
+    func isValid(amount: UITextField) {
+        if let alert = presentedViewController as? UIAlertController {
+            let action = alert.actions.first
+            var hasDecimal = false
+            
+            // TEST 1: Empty Input
+            if amount.text == nil {
+                print("EMPTY")
+                action!.isEnabled = false
+                return
+            }
+            
+            // TEST 2: More than two decimal places for cents
+            var centPlaces = 0
+            for ch in stride(from: amount.text!.count - 1, through: 0, by: -1) {
+                let chIndex = amount.text!.index(amount.text!.startIndex, offsetBy: ch)
+                if amount.text![chIndex] == "." {
+                    hasDecimal = true
+                    break
+                }
+                centPlaces += 1
+            }
+            
+            // ex case that returns false - 3.4, 3.231, 546.234245
+            if hasDecimal {
+                action?.isEnabled = (centPlaces == 2 ? true : false)
+            } else {
+                let count = amount.text == nil ? 0 : amount.text!.count
+                action?.isEnabled = count > 0
+            }
+        }
+    }
+    
+    
     //: MARK: Edit Obligation
     func editButtonDidTouch(rowIndex: Int) {
         let obligationItem = self.obligations[rowIndex]
@@ -151,10 +187,15 @@ class WhoYouOweViewController: UITableViewController {
         alert.addTextField { (textField: UITextField) in
             textField.text = obligationItem.toDollarAmount()
             textField.keyboardType = .decimalPad
+            textField.addTarget(
+                self,
+                action: #selector(self.isValid(amount:) ),
+                for: .editingChanged)
         }
         
         let saveAction = UIAlertAction(title: "Save", style: .default)
         { _ in
+            
             let nameText = alert.textFields![0]
             let amountText = alert.textFields![1]
             
@@ -171,6 +212,9 @@ class WhoYouOweViewController: UITableViewController {
         
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
+        
+        saveAction.isEnabled = false
+        
         present(alert, animated: true, completion: nil)
     }
     

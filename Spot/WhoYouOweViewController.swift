@@ -127,10 +127,17 @@ class WhoYouOweViewController: UITableViewController {
         alert.addTextField { (textField: UITextField) in
             textField.placeholder = "0.00"
             textField.keyboardType = .decimalPad
+            textField.addTarget(
+                self,
+                action: #selector(self.isValid(amount:) ),
+                for: .editingChanged)
         }
         
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
+        
+        saveAction.isEnabled = false 
+        
         present(alert, animated: true, completion: nil)
     }
     
